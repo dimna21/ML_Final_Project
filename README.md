@@ -1,6 +1,7 @@
 # Walmart store sales forecasting
 
 # Timeseries მოდელები
+### Data exploration and preprocessing
 
 ### ARIMA
 
@@ -10,6 +11,8 @@
 
 
 # ხის მოდელები
+### Data exploration and preprocessing
+
 
 ### XGBoost
 
@@ -17,6 +20,7 @@
 
 
 # ნეირონული ქსელები
+### Data exploration and preprocessing
 
 ### N-BEATS
 
