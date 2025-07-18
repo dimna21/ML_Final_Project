@@ -1,5 +1,29 @@
-# ML_Final_Project
+# Walmart store sales forecasting
 
 # Timeseries მოდელები
 
-# ARIMA
+### ARIMA
+
+### SARIMAX
+
+### Prophet
+
+
+# ხის მოდელები
+
+### XGBoost
+
+### LightGBM
+
+
+# ნეირონული ქსელები
+
+### N-BEATS
+
+### Temporal Fusion Transformer
+
+### PatchTST
+
+### DLinear
+
+
