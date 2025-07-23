@@ -2,6 +2,21 @@
 
 # Timeseries მოდელები
 ### Data exploration and preprocessing
+Timeseries მოდელების გამოკვლევისა და პრეპროცესინგის ნაწილში შემდეგი დაკვირვებებია ნაწარმოები თითოეული ცვლადისთვის (გრაფიკები მოცემულია ერთი მაღაზიის ჯამური გაყიდვებისთვის):
+1. IsHoliday ცვლადის ნაცვლად თითოეული თარიღისთვის ამ კონკრეტული დღესასწაულის ცვლადია გამოყვანილი. მადლიერების დღისა და შობის დროს გაყიდვები ყველაზე მეტად იზრდება, superbowl-ს და labor day-ს კი შესამჩნევი, მაგრამ შედარებით ნაკლები ზრდა მოჰყვება.
+<img width="1389" height="790" alt="Unknown-4" src="https://github.com/user-attachments/assets/9f9a5b3a-625a-4d19-ab60-87862cebc67f" />
+
+2. CPI, Fuel price, unemployment rate და temperature ცვლადები ერთი შეხედვით გაყიდვების პატერნების შესახებ მკაფიო ინფორმაციას არ იძლევიან, მაგრამ ექსპერიმენტის ჩატარებისთვის ვტოვებთ.
+<img width="1189" height="589" alt="Unknown" src="https://github.com/user-attachments/assets/bcc06d55-9e7b-4263-b181-80d049034399" />
+<img width="1189" height="589" alt="Unknown-1" src="https://github.com/user-attachments/assets/0f47deff-5d5b-402f-9b4f-68bc460c3bf5" />
+<img width="1189" height="589" alt="Unknown-2" src="https://github.com/user-attachments/assets/0f196fad-b440-4474-9395-050fe2def9cf" />
+<img width="1189" height="589" alt="Unknown-3" src="https://github.com/user-attachments/assets/e082980c-cae6-4885-b2c8-5b3e22bb1872" />
+
+3. ვინაიდან დღესასწაულების ცვლადები ყველაზე გამოსადეგი იყო, ორი შედარებით მძლავრი პრედიქტორისთვის დამატებულია days_to_{holiday} ცვლადები. როგორც მოსალოდნელია, ეს ცვლადები პიკს აღწევენ 0 მნიშვნელობისას. ამასთანავე, მოცემულ ცვლადში შენახულია ინფორმაცია დღესასწაულამდე და მის შემდეგ გაყიდვების ცვლილებაში. როდესაც days_to_{holiday} უარყოფითია, ეს მოდელს ანიშნებს, რომ დღესასწაულის შემდგომ პერიოდს ვუყურებთ, დადებითობის შემთხვევაში კი დღესასწაულის წინა დღეების მანიშნებელია.  
+<img width="1143" height="790" alt="Unknown-5" src="https://github.com/user-attachments/assets/07a388c9-f560-4a48-bdd0-909336084d6a" />
+<img width="1143" height="790" alt="Unknown-6" src="https://github.com/user-attachments/assets/db10b25d-0280-48f7-84a0-bc63f01e9e04" />
+
+
 
 ### ARIMA
 
