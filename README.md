@@ -77,17 +77,26 @@ cpi და unemployment თარიღების მიხედვით ა
 შევქმენით 3 სახის ეკონომიკური ცვლადები:
   1. Fuel price high/low flags and interaction with store Size
       საწვავის ფასის გავლენის დასანახად.
-      <img width="766" height="566" alt="image" src="https://github.com/user-attachments/assets/8f734eaa-05fc-45f2-8b0c-d60f24fe018f" />
-
-  2. economic_pressure და purchasing_power
-      რომლებიც შემდეგნაირად გამოითვლება: CPI x Unemployment და CPI / (Unemployment + 1e-8) (ნოლზე გაყოფის ასარიდებლად).
       <img width="766" height="566" alt="image" src="https://github.com/user-attachments/assets/12b7e9a3-5dc0-49ff-97b9-311a32a1a754" />
 
+      პლოტიდან ჩანს, რომ თუ საწვავი ფასის პიკისკენაა (უმაღლესი 25 პროცენტში), მაშინ ნაკლები გაყიდვებია, თუმცა მარტივი მოდელების შედეგი
+      ამ ცვლადს არ გაუმჯობესებია, არამედ ოდნავ უარესი შედეგი დადო, ამიტომ ამ ცვლადები აღარ გამოგვიყენებია.
+          
+  2. economic_pressure და purchasing_power
+      რომლებიც შემდეგნაირად გამოითვლება: CPI x Unemployment და CPI / (Unemployment + 1e-8) (ნოლზე გაყოფის ასარიდებლად).
+      <img width="766" height="566" alt="image" src="https://github.com/user-attachments/assets/8f734eaa-05fc-45f2-8b0c-d60f24fe018f" />
+
+      ამ შექმნილმა ცვლადებმა დიდად შედეგი ვერ გამოიღო, როცა მოდელი ავაგეთ და მისი feature importance-ებიც ვნახეთ. ზემოთა პლოტიდანაც ჩანს,
+      რომ ეს ცვლადები კარგ ინდიკატორებად არ გამოდგნენ, ამიტომ ეს ცვლადებიც არარ გამოგვიყენებია.
+      
   3. Markdown effectiveness
-      total_markdown, markdown_count, avg_markdown, holiday_markdown_boost.
+     total_markdown, markdown_count, avg_markdown, holiday_markdown_boost.
      <img width="770" height="566" alt="image" src="https://github.com/user-attachments/assets/248e6e00-a5c3-46af-bebf-501ae6063833" />
 
-
+     ამ ცვლადებმა ოდნავ დადებითი გავლენა მოახდინა მოდელის შედეგებზე, რაც ზემოთა პლოტიდანაც ჩანს, რომ როცა სხვადასხვა ტიპის markdown
+     გვაქვს, მაშინ უფრო მეტი გაყიდვებია. ამ პლოტში 0-ებზე კონცენტრირებული უმეტესი მონაცემების დიდი ნაწილი, ეს იქიდან გამომდინარეა, რომ            markdown-ების თითოეული markdown ცვლადისთვის 50%-ზე მეტი nan იყო, რაც 0-ებით შევავსეთ, ვინაიდან markdown ფასდაკლებების/ფრომოუშენების
+     ცვლადია და მისი nan მნიშვნელობა, სავარააუდოდ მის არ არსებობას ნიშნავს.
+      
 ### XGBoost
 
 ### LightGBM
