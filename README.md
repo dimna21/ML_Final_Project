@@ -193,6 +193,26 @@ submission scores: private: 3592.00, public: 3393.33
 ### N-BEATS
 
 ### Temporal Fusion Transformer
+Temporal Fusion Transformer არის კომპლექსური ნეირონული ქსელი, რომელიც რამდენიმე კომპონენტისგან შედგება. LSTM ენკოდერი ინფუთებს გარდაქმნის ვექტორად, რომელსაც LSTM დეკოდერი იყენებს მომავლის სემპლების გენერაციისთვის. ორივე LSTM-ის აუთფუთს ინფუთი უკავშირდება residual connection-ით და GRN-ს გავლით შედის masked multihead attention transformer კომპონენტში. ტრანსფორმერი უმთავრესი ნაწილია, რადგან იგი მიმდევრობებში attention მექანიზმის გამოყენებით სწავლობს პატერნებს. საბოლოოდ, ამ ბლოკის აუთფუთი dense შრეებს გადის საბოლოო ფრედიქშენის გენერაციისთვის. ამ მოდელისთვის საუკეთესოებად გადაირჩა შემდეგი პარამეტრები:
+
+hidden_size=128,
+grn_activation="ELU",    
+rnn_type="lstm",    
+n_rnn_layers=4,          
+one_rnn_initial_state=False,
+loss=DistributionLoss(distribution="StudentT", level=[80, 90]),
+learning_rate=0.001,
+max_steps=2000,
+val_check_steps=100,
+early_stop_patience_steps=0,
+batch_size=64,
+dropout=0.2,
+scaler_type='robust'
+
+https://dagshub.com/dimna21/ML_Final_Project/experiments#/experiment/m_ba9d3a18c1a74adeb1e63e1f0c7c528a
+
+kaggle-ს ტესტ სეტზე მოდელმა აიღო 3006 WMAE
+<img width="948" height="125" alt="Screenshot 2025-07-31 at 11 08 06 pm" src="https://github.com/user-attachments/assets/c23ec679-184f-4a94-9fbb-0780303352af" />
 
 ### PatchTST
 
