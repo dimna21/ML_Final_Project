@@ -73,6 +73,21 @@ cpi და unemployment თარიღების მიხედვით ა
 გრაფიკი ლოგ სკალაზეა აგებული სადაც მკაფიოდ ჩანს, რომ store/dept კომბინაციის სტატისტიკური ცვლადები ძალიან მნიშვნელოვნად ეხმარება მოდელს.
 ხოლო სხვა ახალი ცვლადებიც კარგი ინდიკატორებია.
 
+# Economical
+შევქმენით 3 სახის ეკონომიკური ცვლადები:
+  1. Fuel price high/low flags and interaction with store Size
+      საწვავის ფასის გავლენის დასანახად.
+      <img width="766" height="566" alt="image" src="https://github.com/user-attachments/assets/8f734eaa-05fc-45f2-8b0c-d60f24fe018f" />
+
+  2. economic_pressure და purchasing_power
+      რომლებიც შემდეგნაირად გამოითვლება: CPI x Unemployment და CPI / (Unemployment + 1e-8) (ნოლზე გაყოფის ასარიდებლად).
+      <img width="766" height="566" alt="image" src="https://github.com/user-attachments/assets/12b7e9a3-5dc0-49ff-97b9-311a32a1a754" />
+
+  3. Markdown effectiveness
+      total_markdown, markdown_count, avg_markdown, holiday_markdown_boost.
+     <img width="770" height="566" alt="image" src="https://github.com/user-attachments/assets/248e6e00-a5c3-46af-bebf-501ae6063833" />
+
+
 ### XGBoost
 
 ### LightGBM
