@@ -47,9 +47,23 @@ Facebook Prophet არის additive regression მოდელი, რაც 
 
 # ხის მოდელები
 ### Data exploration and preprocessing
+# Seasonal
 სეზონური data exploration მსგავსია ზემოთ time series მოდელებისათვის. ერთი განსხვავება ისაა, რომ back to school პერიოდიც განვიხილე, თუმცა ამ პერიოდის შესაბამისმა ცვლადებს საგულისხმო გავლენა
 არ ჰქონდათ გაყიდვებზე, რაც პლოტზეც ჩანს, ამიტომ საბოლოოდ აღარ გამოვიყენეთ პრეპროცესინგში.
 <img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/8116442f-13f0-46c9-ad18-b23fd1c10997" />
+
+# CPI, Unemployment
+feature.csv თეიბლში CPI და Unemployment ცვლადი დაახლოებით 7% ცარიელი იყო, ზუსტად ერთი და იგივე რაოდენობის. დაკვირვების შედეგად ეს ცვლადები ტესტ სეტის ბოლო პერიოდში იყო უცნობი, ყველა სთორისთვის, რაც ნაჩვენებია ქვემო heatmap პლოტებზე.
+<img width="1489" height="989" alt="image" src="https://github.com/user-attachments/assets/ccd00025-4a76-476e-a2ad-f7a7250785fb" />
+
+cpi და unemployment თარიღების მიხედვით ასე გამოიყურებოდა. ჩანს, რომ დაახლოებიტ 2013-04-05 თარიღის შემდეგ არ გვაქვს ეს ცვლადები.
+<img width="1189" height="790" alt="image" src="https://github.com/user-attachments/assets/048cc1fc-d079-4691-84e9-e217cab0bb82" />
+
+ზემოთა პლოტებზე შეგვიძლია ტრენდები შევნიშნოთ. cpi დროთა განმავლობაში მატულობს, ხოლო unemployment მცირდება. სავარუდოდ უმუშევრობის საფეხურად შემცირება იქიდანაა გამოწვეული, რომ
+ეს ცვლადი ყოველი თვის დასაწყისში განისაზღვრებოდა, და მთელ თვეზე იგივე რჩებოდა, როცა სინამდვილეში, ალბათ დაეცემოდა თვის განმავლობაშიც.
+ამ დაკვირვების საფუძველზე, გავაკეთეთ ორივე ცვლადის წრფივი ინტერპოლაცია და უცნობი ცვლადები შემდეგნაირად შევავსეთ.
+<img width="1189" height="790" alt="image" src="https://github.com/user-attachments/assets/e940109a-ff6f-4851-ae1f-28c8ecdc1ebf" />
+
 
 ### XGBoost
 
