@@ -83,14 +83,14 @@ cpi და unemployment თარიღების მიხედვით ა
       შედეგი არ არის. მარტივი xgb მოდელეზე ტრენინგის დროსაც ამ ცვლადს არ გაუმჯობესებია შედეგი, არამედ ოდნავ უარესი შედეგი დადო, ამიტომ
       ეს ცვლადები აღარ გამოგვიყენებია.
           
-  3. economic_pressure და purchasing_power
+  2. economic_pressure და purchasing_power
       რომლებიც შემდეგნაირად გამოითვლება: CPI x Unemployment და CPI / (Unemployment + 1e-8) (ნოლზე გაყოფის ასარიდებლად).
       <img width="766" height="566" alt="image" src="https://github.com/user-attachments/assets/8f734eaa-05fc-45f2-8b0c-d60f24fe018f" />
 
       ამ შექმნილმა ცვლადებმა დიდად შედეგი ვერ გამოიღო, როცა მოდელი ავაგეთ და მისი feature importance-ებიც ვნახეთ. ზემოთა პლოტიდანაც ჩანს,
-      რომ ეს ცვლადები კარგ ინდიკატორებად არ გამოდგნენ, ამიტომ ეს ცვლადებიც არარ გამოგვიყენებია.
+      რომ ეს ცვლადები კარგ ინდიკატორებად არ გამოდგნენ, ამიტომ ეს ცვლადებიც აღარ გამოგვიყენებია.
       
-  4. Markdown effectiveness
+  3. Markdown effectiveness
      total_markdown, markdown_count, avg_markdown, holiday_markdown_boost.
      <img width="770" height="566" alt="image" src="https://github.com/user-attachments/assets/248e6e00-a5c3-46af-bebf-501ae6063833" />
 
