@@ -160,14 +160,32 @@ submission scores: private: 3001.69, public: 2875.75
 
 
 ### LightGBM
+Light Gradient Boosting Machine მოდელი სწრაფ და ძლიერ ხის სტრუქტურაზე დაფუძნებულ ალგორითმს იყენებს. ეს მოდელიც, XGB-ის მსგავსად ვერ აღიქვამს დროს,
+ამიტომ ზემოთ ნახსენები კონცეპტები, ამ მოდელსაც ეხება. ამ მოდელს შეუძლია nan და კატეგორიულ ცვლადებთან მუშაობა. ასევე LGBM-ს შეუძლია ბევრი ცვლადიდან
+ადვილად ამოიცნოს ყველაზე მნიშვნელოვნები.
 
+ტრენინგისას დავატუნინგეთ შემდეგი ცვლადები - learning rate, n_estimators, max_depth, subsample, bagging_fraction, colsample_bytree, lambda_l1, lambda_l2.
+ამ პარამეტრების ტუნინგიდან თითქმის მთელი გავლენა პირველმა 3-მა იქონია, სავარაუდოდ იმიტომ, რომ ოვერფიტზე ისედაც არ გადიოდა მოდელი.
+
+საბოოო საუკეთესო მოდელის პარამეტრები:
+1. learning rate = 0.05
+2. n_estimators = 3000
+3. max_depth = 7
+4. subsample = 0.9
+5. bagging_fraction = 0.8
+6. colsample_bytree = 0.8
+7. lambda_l1 = 0
+8. lambda_l2 = 0
+
+submission scores: private: 3592.00, public: 3393.33
+<img width="1361" height="116" alt="image" src="https://github.com/user-attachments/assets/dbba66ab-4b32-4945-963a-bd68aba525c3" />
 
 
 # პარამეტრები, პლოტები და ლოგები
 მოდელების ტრენინგისას გამოვიყენე მეტრიკები: WMAE, MAE, RMSE, R2.
 ასევე ავაგე და დავლოგე შემდეგი პლოტები: actual vs predicted, residuals vs predicted, WMAE Error distribution - ტრეინ და ტესტ სეტებისთვის ცალკე + Train vs Val Metrics.
 
-ხის მოდელების ტრენინგის ნახვა შეგიძლიათ ნახოთ გიტჰაბის შესაბამის ნოუთვუქებში (ბევრი პლოტი ახლავს თან) და/ან mlflow ლინკზე: https://dagshub.com/nkhar21/ML_Final_Project.mlflow/#/experiments/0searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D
+ხის მოდელების ჰიპერპარამეტრების ტუნინგის ნახვა შეგიძლიათ გიტჰაბის შესაბამის ნოუთბუქებში და/ან mlflow ლინკზე: https://dagshub.com/nkhar21/ML_Final_Project.mlflow/#/experiments/0searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D
 
 # ნეირონული ქსელები
 ### Data exploration and preprocessing
