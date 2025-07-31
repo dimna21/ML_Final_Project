@@ -163,6 +163,10 @@ submission scores: private: 3001.69, public: 2875.75
 
 
 
+# პარამეტრები, პლოტები და ლოგები
+მოდელების ტრენინგისას გამოვიყენე მეტრიკები: WMAE, MAE, RMSE, R2.
+ასევე ავაგე და დავლოგე შემდეგი პლოტები: actual vs predicted, residuals vs predicted, WMAE Error distribution - ტრეინ და ტესტ სეტებისთვის ცალკე + Train vs Val Metrics.
+
 ხის მოდელების ტრენინგის ნახვა შეგიძლიათ ნახოთ გიტჰაბის შესაბამის ნოუთვუქებში (ბევრი პლოტი ახლავს თან) და/ან mlflow ლინკზე: https://dagshub.com/nkhar21/ML_Final_Project.mlflow/#/experiments/0searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D
 
 # ნეირონული ქსელები
