@@ -47,6 +47,9 @@ Facebook Prophet არის additive regression მოდელი, რაც 
 
 # ხის მოდელები
 ### Data exploration and preprocessing
+სეზონური data exploration მსგავსია ზემოთ time series მოდელებისათვის. ერთი განსხვავება ისაა, რომ back to school პერიოდიც განვიხილე, თუმცა ამ პერიოდის შესაბამისმა ცვლადებს საგულისხმო გავლენა
+არ ჰქონდათ გაყიდვებზე, რაც პლოტზეც ჩანს, ამიტომ საბოლოოდ აღარ გამოვიყენეთ პრეპროცესინგში.
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/8116442f-13f0-46c9-ad18-b23fd1c10997" />
 
 ### XGBoost
 
