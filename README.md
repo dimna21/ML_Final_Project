@@ -47,6 +47,7 @@ Facebook Prophet არის additive regression მოდელი, რაც 
 
 # ხის მოდელები
 ### Data exploration and preprocessing
+<img width="812" height="274" alt="image" src="https://github.com/user-attachments/assets/5c310bed-1367-4a96-be73-b7a38427fe6c" />
 
 
 ### XGBoost
