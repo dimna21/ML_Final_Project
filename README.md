@@ -220,7 +220,9 @@ NBEATS ნეურონულ ბაზაზეა დაფუძნებ�
 8. max_steps = 2000
 9. batch_size = 64
 
-ამ მოდელისთვის ყველაზე მნიშვნელოვანი პარამეტრები input_size da h (horizon) არის. ქვემოთა პლოტებზეა მოცემული მათი ეფექტი ტრენინგისას ვალიდაციაზე.
+ამ მოდელისთვის ყველაზე მნიშვნელოვანი პარამეტრები input_size da h (horizon) არის. 
+ქვემოთა პლოტებზეა მოცემული მათი ეფექტი ტრენინგისას ვალიდაციაზე.
+
 <img width="558" height="393" alt="image" src="https://github.com/user-attachments/assets/4f368076-ee39-432f-b83b-cdfb9e0f1839" />
 <img width="549" height="393" alt="image" src="https://github.com/user-attachments/assets/ad823197-8f9c-4872-8c81-64ecdba54ffe" />
 
