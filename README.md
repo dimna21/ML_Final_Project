@@ -207,12 +207,12 @@ NBEATS ნეურონულ ბაზაზეა დაფუძნებ�
 ეს ბლოკები კი ერთიანდება სტეკებში, რომლებიც უკვე გლობალურ forecast-ს იძლევიან.
 
 ტრენინგისას დავატუნინგეთ შემდეგი ცვლადები - input_size, h, n_blocks, stack_types, n_polynomials, n_harmonics, learning_rate, max_steps, batch_size.
-ამ პარამეტრების ტუნინგიდან თითქმის მთელი გავლენა პირველმა 3-მა იქონია, სავარაუდოდ იმიტომ, რომ ოვერფიტზე ისედაც არ გადიოდა მოდელი.
+ამ პარამეტრების ტუნინგიდან თითქმის მთელი გავლენა პირველმა 2-მა იქონია, სავარაუდოდ იმიტომ, რომ ოვერფიტზე ისედაც არ გადიოდა მოდელი.
 
 საბოოო საუკეთესო მოდელის პარამეტრები:
 1. input_size = 52 - წინა რამდენი კვირა იყოს გათვალისწინებული ახალი forecast-ისთვის
 2. h = 40 - ჰორიზონი - მომდევნო რამდენ კვირაზე გაკეთდეს forecast
-3.stack_types = ["identity","trend","seasonality"] - ბლოკების ტიპები
+3. stack_types = ["identity","trend","seasonality"] - ბლოკების ტიპები
 4. n_blocks = [3,3,3] - სტაკებში ბლოკების რაოდენობა
 5. n_polynomials = 2 - პოლინომის ხარისხი ტრენდისთვის
 6. n_harmonics = 2 - კოსინუ-სინუს წყვილების რაოდენობა სეზონურობისთვის
@@ -230,31 +230,6 @@ NBEATS ნეურონულ ბაზაზეა დაფუძნებ�
 ამ მოდელს ჰქონდა საუკეთესო შედეგი, რაც ლიდერბორზე 31 ადგილი იქნება.
 submission scores: private: 2722.22, public: 2631.88
 <img width="1365" height="111" alt="image" src="https://github.com/user-attachments/assets/aef103a5-39e6-4324-8c25-46b7be1d7c26" />
-
-
-### Temporal Fusion Transformer
-Temporal Fusion Transformer არის კომპლექსური ნეირონული ქსელი, რომელიც რამდენიმე კომპონენტისგან შედგება. LSTM ენკოდერი ინფუთებს გარდაქმნის ვექტორად, რომელსაც LSTM დეკოდერი იყენებს მომავლის სემპლების გენერაციისთვის. ორივე LSTM-ის აუთფუთს ინფუთი უკავშირდება residual connection-ით და GRN-ს გავლით შედის masked multihead attention transformer კომპონენტში. ტრანსფორმერი უმთავრესი ნაწილია, რადგან იგი მიმდევრობებში attention მექანიზმის გამოყენებით სწავლობს პატერნებს. საბოლოოდ, ამ ბლოკის აუთფუთი dense შრეებს გადის საბოლოო ფრედიქშენის გენერაციისთვის. ამ მოდელისთვის საუკეთესოებად გადაირჩა შემდეგი პარამეტრები:
-
-hidden_size=128,
-grn_activation="ELU",    
-rnn_type="lstm",    
-n_rnn_layers=4,          
-one_rnn_initial_state=False,
-loss=DistributionLoss(distribution="StudentT", level=[80, 90]),
-learning_rate=0.001,
-max_steps=2000,
-val_check_steps=100,
-early_stop_patience_steps=0,
-batch_size=64,
-dropout=0.2,
-scaler_type='robust'
-
-https://dagshub.com/dimna21/ML_Final_Project/experiments#/experiment/m_ba9d3a18c1a74adeb1e63e1f0c7c528a
-
-kaggle-ს ტესტ სეტზე მოდელმა აიღო 3006 WMAE
-<img width="948" height="125" alt="Screenshot 2025-07-31 at 11 08 06 pm" src="https://github.com/user-attachments/assets/c23ec679-184f-4a94-9fbb-0780303352af" />
-
-### PatchTST
 
 ### DLinear
 ამ მოდელს ბევრი მსგავსება აქვს NBEATS-თან. ისიც სეზონურ და ტრენდ კომპონენტებად ყოფს ინფუთს, მას ცალცალკე ატარებს წრფივ ლეიერში და 
@@ -282,3 +257,58 @@ kaggle-ს ტესტ სეტზე მოდელმა აიღო 3006 
 submission scores: private: 3143.90, public: 3013.21
 <img width="1370" height="115" alt="image" src="https://github.com/user-attachments/assets/45f5c9d0-c742-4c39-ab1f-713ad9138397" />
 
+
+### Temporal Fusion Transformer
+Temporal Fusion Transformer არის კომპლექსური ნეირონული ქსელი, რომელიც რამდენიმე კომპონენტისგან შედგება. LSTM ენკოდერი ინფუთებს გარდაქმნის ვექტორად, რომელსაც LSTM დეკოდერი იყენებს მომავლის სემპლების გენერაციისთვის. ორივე LSTM-ის აუთფუთს ინფუთი უკავშირდება residual connection-ით და GRN-ს გავლით შედის masked multihead attention transformer კომპონენტში. ტრანსფორმერი უმთავრესი ნაწილია, რადგან იგი მიმდევრობებში attention მექანიზმის გამოყენებით სწავლობს პატერნებს. საბოლოოდ, ამ ბლოკის აუთფუთი dense შრეებს გადის საბოლოო ფრედიქშენის გენერაციისთვის. ამ მოდელისთვის საუკეთესოებად გადაირჩა შემდეგი პარამეტრები:
+
+hidden_size=128,
+grn_activation="ELU",    
+rnn_type="lstm",    
+n_rnn_layers=4,          
+one_rnn_initial_state=False,
+loss=DistributionLoss(distribution="StudentT", level=[80, 90]),
+learning_rate=0.001,
+max_steps=2000,
+val_check_steps=100,
+early_stop_patience_steps=0,
+batch_size=64,
+dropout=0.2,
+scaler_type='robust'
+
+https://dagshub.com/dimna21/ML_Final_Project/experiments#/experiment/m_ba9d3a18c1a74adeb1e63e1f0c7c528a
+
+kaggle-ს ტესტ სეტზე მოდელმა აიღო 3006 WMAE
+<img width="948" height="125" alt="Screenshot 2025-07-31 at 11 08 06 pm" src="https://github.com/user-attachments/assets/c23ec679-184f-4a94-9fbb-0780303352af" />
+
+### PatchTST
+
+PatchTST არის ტრანსფორმერზე დაფუძნებული univariate მოდელი. ის შემომავალ time series დატას ყოფს overlapping patch-ებად, 
+აკეთებს წრფივ ემბედინგს და შემდეგ  multi-head self-attention ენკოდინგს patch-ების მიმდევრობას, დაბოლოს აწყობს forecast-ს დროით სივრცეში.
+მოდელის არქიტექტურა ქცემოთა სურათზე.
+<img width="5851" height="4596" alt="image" src="https://github.com/user-attachments/assets/8ef080dc-9ae3-4f1d-9bea-c85e5f6fcca5" />
+
+ტრენინგისას დავატუნინგეთ შემდეგი ცვლადები - input_size, h, patch_len, stride, encoder_layers, n_heads, hidden_size, dropout, fc_dropout, head_dropout.
+ამ პარამეტრების ტუნინგიდან თითქმის მთელი გავლენა პირველმა 3-მა იქონია, სავარაუდოდ იმიტომ, რომ ოვერფიტზე ისედაც არ გადიოდა მოდელი.
+
+საბოოო საუკეთესო მოდელის პარამეტრები:
+1. input_size = 62 
+2. h = 39
+3. patch_len = 40 - თითო patch 40 კვირას ფარავს
+4. stride = 20 - 20 კვირაში ერთხელ იწყება patch-ები
+5. encoder_layers = 1 - ტრანსფორმერის ენკოდერის სიღრმე (1 self-attention ბლოკი)
+6. n_heads = 16 - attention head რაოდენობა
+7. hidden_size = 128 - patch embedding-ის და feedforward ლეიერების ზომა
+8. dropout = 0.1 - დროპაუთები შესაბამის ლეირებში რეგულარიზაციისთვის
+9. fc_dropout = 0.1   
+10. head_dropout = 0.1
+
+ამ მოდელისთვის ყველაზე მნიშვნელოვანი პარამეტია input_size. h ფიქსირებული 39 კვირაზე - ტესტის რაოდენობის მომდევნო კვირებზე. 
+ქვემოთა პლოტებზეა მოცემული ეფექტი ტრენინგისას ვალიდაციაზე.
+<img width="704" height="547" alt="image" src="https://github.com/user-attachments/assets/2a0ca22d-11fb-4425-a139-65e2b7a30676" />
+
+submission scores: private: 3014.81, public: 2904.53
+<img width="1373" height="125" alt="image" src="https://github.com/user-attachments/assets/71f810aa-f6c9-4bc4-bc97-9d1a0ae861de" />
+
+
+### პარამეტრები, პლოტები, ტრენინგი და ლოგები WANDB-ზე - NBEATS, DLinear, PatchTST 
+https://wandb.ai/nkhar21-student/ML_Final/workspace?nw=nwusernkhar21
