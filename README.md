@@ -220,7 +220,12 @@ NBEATS ნეურონულ ბაზაზეა დაფუძნებ�
 8. max_steps = 2000
 9. batch_size = 64
 
-ამ მოდელს ჰქონდა საუკეთესო შედეგი
+ამ მოდელისთვის ყველაზე მნიშვნელოვანი პარამეტრები input_size da h (horizon) არის. ქვემოთა პლოტებზეა მოცემული მათი ეფექტი ტრენინგისას ვალიდაციაზე.
+<img width="558" height="393" alt="image" src="https://github.com/user-attachments/assets/4f368076-ee39-432f-b83b-cdfb9e0f1839" />
+<img width="549" height="393" alt="image" src="https://github.com/user-attachments/assets/ad823197-8f9c-4872-8c81-64ecdba54ffe" />
+
+
+ამ მოდელს ჰქონდა საუკეთესო შედეგი, რაც ლიდერბორზე 31 ადგილი იქნება.
 submission scores: private: 2722.22, public: 2631.88
 <img width="1365" height="111" alt="image" src="https://github.com/user-attachments/assets/aef103a5-39e6-4324-8c25-46b7be1d7c26" />
 
