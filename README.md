@@ -312,3 +312,9 @@ submission scores: private: 3014.81, public: 2904.53
 
 ### პარამეტრები, პლოტები, ტრენინგი და ლოგები WANDB-ზე - NBEATS, DLinear, PatchTST 
 https://wandb.ai/nkhar21-student/ML_Final/workspace?nw=nwusernkhar21
+
+
+DLinear, NBEATS და XGB ატვირთვისას ერორს მაძლევს გიტჰაბზე, იმიტომ, რომ რაღაც wiget-ებთან აქ პრობლემ რომლებიც ნოუთბუქშია პლოტებისთვის მგონი.
+ამიტომ ეს ფაილები .py ფორმატში ავტვირთე.
+ორიგინალი ნოუთბუქები უამრავი პლოტით არის ამ დრაივის ლინკზე:
+https://drive.google.com/drive/folders/1nWUoU6nyC_hJZINWOAZryLhnqYQavgaH?usp=sharing
